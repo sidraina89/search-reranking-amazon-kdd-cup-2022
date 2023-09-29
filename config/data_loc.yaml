@@ -1,0 +1,8 @@
+---
+  hf_hub_repo: "sidraina/amazon-kdd-cup-2022"
+  local_data_dir: "../data"
+  data:
+    train:
+      filename: "train-v0.3.parquet"
+    catalog: 
+      filename: "product_catalogue-v0.3.parquet"

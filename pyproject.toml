@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "amazon-reranking-kdd-2022"
+version = "0.1.0"
+description = "Repository for re-ranking task for Amazon KDD Cup 2022"
+authors = ["Siddharth Raina"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">3.11,<3.13"
+transformers = "^4.33.2"
+sentence-transformers = "2.2.2"
+pandas = "^2.1.1"
+pytorch-lightning = "^2.0.9"
+omegaconf = "^2.3.0"
+torch = "^2.0.1"
+torchvision = "^0.15.2"
+pyarrow = "^13.0.0"
+fastparquet = "^2023.8.0"
+huggingface-hub = "^0.17.3"
+datasets = "^2.14.5"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.25.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
