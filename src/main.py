@@ -1,8 +1,8 @@
-from src.data_processor import Process
+from data_processor import Process
 from eval import Evaluator
 from model import CosineSimilarityModel
 import logger
-from src.data_downloader import download_data_from_hub
+from data_downloader import download_data_from_hub
 
 from data_factories import *
 import yaml
@@ -34,9 +34,9 @@ if __name__ == "__main__":
 
     train_df = Process(searchResultsLoader, productLoader).run(encode_labels=True)
 
-    # Subset train_df tp test on local
-    query_subset = train_df["query_id"].unique()[:100]
-    train_df = train_df[train_df.query_id.isin(query_subset)]
+    # Subset train_df to test on local
+    # query_subset = train_df["query_id"].unique()[:1000]
+    # train_df = train_df[train_df.query_id.isin(query_subset)]
     sim_model = CosineSimilarityModel()
     root.info("Embedding Queries..")
     train_df["query_embeddings"] = sim_model.forward(

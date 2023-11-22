@@ -8,10 +8,12 @@ features = [
     "query",
     "query_locale",
     "product_id",
+    "product_locale",
     "esci_label",
     "product_title",
 ]
 
+log = logging.getLogger()
 
 class Process:
     def __init__(self, esciLoader, productLoader):
@@ -24,7 +26,8 @@ class Process:
         esci_data_w_meta = pd.merge(
             esci_data.reset_index(drop=True),
             products.reset_index(drop=True),
-            on="product_id",
+            left_on=["product_id","query_locale"],
+            right_on=["product_id","product_locale"],
             how="left"
         )
         if encode_labels:
